@@ -1,5 +1,1 @@
-var yes = {
-  taco
-  burrito
-
-}}
+'use strict'
