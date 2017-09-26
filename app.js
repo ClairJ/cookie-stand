@@ -23,12 +23,21 @@ var pike = {
     return (Math.floor(this.hourlyC() * this.avgCS));
   },
   render: function() {
+    var x = 0;
     for (var i = 0; i < openHrs.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var totals2 = this.cookiePH();
+      var totals = openHrs[i] + ': ' + totals2;
+      liEl.textContent = totals;
       var pikeUl = document.getElementById('pike');
       pikeUl.appendChild(liEl);
+      x += totals2;
     }
+    var liTotal = document.createElement('li');
+    liTotal.textContent = 'Total: ' + x;
+    var totalUl = document.getElementById('total1');
+    totalUl.appendChild(liTotal);
+    console.log('testing' + x);
   }
 };
 //I know this is ugly D: I have lost control!!!
@@ -58,7 +67,7 @@ var seaTac = {
     //total in html
     var liTotal = document.createElement('li');
     liTotal.textContent = 'Total: ' + x;
-    var totalUl = document.getElementById('total');
+    var totalUl = document.getElementById('total2');
     totalUl.appendChild(liTotal);
     console.log('testing' + x);
   }
@@ -76,12 +85,21 @@ var seaCenter = {
     return (Math.floor(this.hourlyC() * this.avgCS));
   },
   render: function() {
+    var x = 0;
     for (var i = 0; i < openHrs.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var totals2 = this.cookiePH();
+      var totals = openHrs[i] + ': ' + totals2;
+      liEl.textContent = totals;
       var seaCenterUl = document.getElementById('seaCenter');
       seaCenterUl.appendChild(liEl);
+      x += totals2;
     }
+    var liTotal = document.createElement('li');
+    liTotal.textContent = 'Total: ' + x;
+    var totalUl = document.getElementById('total3');
+    totalUl.appendChild(liTotal);
+    console.log('testing' + x);
   }
 };
 
@@ -97,12 +115,21 @@ var capitolHill = {
     return (Math.floor(this.hourlyC() * this.avgCS));
   },
   render: function() {
+    var x = 0;
     for (var i = 0; i < openHrs.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var totals2 = this.cookiePH();
+      var totals = openHrs[i] + ': ' + totals2;
+      liEl.textContent = totals;
       var capitolHillUl = document.getElementById('capitolHill');
       capitolHillUl.appendChild(liEl);
+      x += totals2;
     }
+    var liTotal = document.createElement('li');
+    liTotal.textContent = 'Total: ' + x;
+    var totalUl = document.getElementById('total4');
+    totalUl.appendChild(liTotal);
+    console.log('testing' + x);
   }
 };
 
@@ -118,12 +145,21 @@ var alki = {
     return (Math.floor(this.hourlyC() * this.avgCS));
   },
   render: function() {
+    var x = 0;
     for (var i = 0; i < openHrs.length; i++) {
       var liEl = document.createElement('li');
-      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var totals2 = this.cookiePH();
+      var totals = openHrs[i] + ': ' + totals2;
+      liEl.textContent = totals;
       var alkiUl = document.getElementById('alki');
       alkiUl.appendChild(liEl);
+      x += totals2;
     }
+    var liTotal = document.createElement('li');
+    liTotal.textContent = 'Total: ' + x;
+    var totalUl = document.getElementById('total5');
+    totalUl.appendChild(liTotal);
+    console.log('testing' + x);
   }
 };
 
