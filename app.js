@@ -21,9 +21,17 @@ var pike = {
   },
   cookiePH: function() {
     return (Math.floor(this.hourlyC() * this.avgCS));
+  },
+  render: function() {
+    for (var i = 0; i < openHrs.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var pikeUl = document.getElementById('pike');
+      pikeUl.appendChild(liEl);
+    }
   }
 };
-
+//I know this is ugly D: I have lost control!!!
 var seaTac = {
   location: shops[1],
   minC: 3,
@@ -34,6 +42,25 @@ var seaTac = {
   },
   cookiePH: function() {
     return (Math.floor(this.hourlyC() * this.avgCS));
+  },
+  render: function() {
+    //counter to store total
+    var x = 0;
+    for (var i = 0; i < openHrs.length; i++) {
+      var liEl = document.createElement('li');
+      var totals2 = this.cookiePH();
+      var totals = openHrs[i] + ': ' + totals2;
+      liEl.textContent = totals;
+      var seaTacUl = document.getElementById('seaTac');
+      seaTacUl.appendChild(liEl);
+      x += totals2;
+    }
+    //total in html
+    var liTotal = document.createElement('li');
+    liTotal.textContent = 'Total: ' + x;
+    var totalUl = document.getElementById('total');
+    totalUl.appendChild(liTotal);
+    console.log('testing' + x);
   }
 };
 
@@ -47,6 +74,14 @@ var seaCenter = {
   },
   cookiePH: function() {
     return (Math.floor(this.hourlyC() * this.avgCS));
+  },
+  render: function() {
+    for (var i = 0; i < openHrs.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var seaCenterUl = document.getElementById('seaCenter');
+      seaCenterUl.appendChild(liEl);
+    }
   }
 };
 
@@ -60,6 +95,14 @@ var capitolHill = {
   },
   cookiePH: function() {
     return (Math.floor(this.hourlyC() * this.avgCS));
+  },
+  render: function() {
+    for (var i = 0; i < openHrs.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var capitolHillUl = document.getElementById('capitolHill');
+      capitolHillUl.appendChild(liEl);
+    }
   }
 };
 
@@ -73,6 +116,14 @@ var alki = {
   },
   cookiePH: function() {
     return (Math.floor(this.hourlyC() * this.avgCS));
+  },
+  render: function() {
+    for (var i = 0; i < openHrs.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = openHrs[i] + ': ' + this.cookiePH();
+      var alkiUl = document.getElementById('alki');
+      alkiUl.appendChild(liEl);
+    }
   }
 };
 
@@ -95,4 +146,11 @@ console.log(seaCenter);
 console.log(capitolHill);
 console.log(alki);
 
+
 console.log('Cookies sold per hour ' + cookiesSPH);
+pike.render();
+seaTac.render();
+seaCenter.render();
+capitolHill.render();
+alki.render();
+//html content
