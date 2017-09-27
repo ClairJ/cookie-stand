@@ -1,7 +1,9 @@
 'use strict';
 //var stores = [];
 var openHrs = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
-
+// ==================================================================
+var figureForm = document.getElementById('firgure-form')
+// ==================================================================
 var allStores = [];
 var storeTable = document.getElementById('stores');
 function Store(name,min,max,avgCS) {
@@ -81,20 +83,22 @@ var capitolHill = new Store('CapitolHill',20,38,2.3);
 var alki = new Store('Alki',2,16,4.6);
 
 console.table(allStores);
-
-pike.avgCust();
-pike.avgCPH();
-seaTac.avgCust();
-seaTac.avgCPH();
-seaCenter.avgCust();
-seaCenter.avgCPH();
-capitolHill.avgCust();
-capitolHill.avgCPH();
-alki.avgCust();
-alki.avgCPH();
-makeHeaderRow();
-pike.render();
-seaTac.render();
-seaCenter.render();
-capitolHill.render();
-alki.render();
+function calltags() {
+  pike.avgCust();
+  pike.avgCPH();
+  seaTac.avgCust();
+  seaTac.avgCPH();
+  seaCenter.avgCust();
+  seaCenter.avgCPH();
+  capitolHill.avgCust();
+  capitolHill.avgCPH();
+  alki.avgCust();
+  alki.avgCPH();
+  makeHeaderRow();
+  pike.render();
+  seaTac.render();
+  seaCenter.render();
+  capitolHill.render();
+  alki.render();
+};
+calltags();
