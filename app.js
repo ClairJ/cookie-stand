@@ -13,22 +13,14 @@ function Store(name,min,max,avgCS) {
   this.avgCookPH = [];
   allStores.push(this);
 }
-Store.prototype.render = function(){
-  var trEl = docuemtn.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = this.name;
-  trEl.appendChild(tdEl);
 
-  tdEl = document.createElement('td');
-  tdEl.textContent = this.avgCookPH;
-  trEl.appendChild(tdEl);
 
-  tdEl = document.createElement('td');
-  tdEl.textContent = openHrs;
-  trEl.appendChild(tdEl);
+// store.prototyp.render = function() {
+//   var trEl = document.createElement('tr');
+//   var thEl = document.createElement('th');
+//   thEl.textContent = openHrs;
+// }
 
-  storeTable.appendChild(trEl);
-};
 
 
 Store.prototype.avgCust = function() {
@@ -50,13 +42,14 @@ Store.prototype.avgCPH = function() {
 //     this.total.push(totals2);
 //   }
 // };
-var pike = new Store('pike','23','65','6.3');
-var seaTac = new Store('seaTac','3','24','1.2');
-var seaCenter = new Store('seaCenter','11','38','3.7');
-var capitolHill = new Store('capitolHill','20','38','2.3');
-var alki = new Store('alki','2','16','4.6');
-//stores avg customers
+var pike = new Store('Pike','23','65','6.3');
+var seaTac = new Store('SeaTac','3','24','1.2');
+var seaCenter = new Store('SeaCenter','11','38','3.7');
+var capitolHill = new Store('CapitolHill','20','38','2.3');
+var alki = new Store('Alki','2','16','4.6');
+
 console.table(allStores);
+
 pike.avgCust();
 pike.avgCPH();
 seaTac.avgCust();
