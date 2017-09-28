@@ -87,12 +87,12 @@ Store.prototype.cookieHourlyTotals = function() {
 
 
       this.cookieHourTotal = 0;
-      this.cookieHourTotal += currentStoreObject.avgCookPH[j];
+      this.cookieHourTotal += currentStoreObject.avgCookPH[i];
       ////////////////////////////////////
       totalCookiesHrly += this.cookieHourTotal;
     }
     cookieHourlyTotal.push(totalCookiesHrly);
-    console.log('totalCookiesHrly', totalCookiesHrly);
+    console.log('totalCookiesHrly', cookieHourlyTotal);
   }
 };
 
