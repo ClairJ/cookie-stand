@@ -15,6 +15,8 @@ function Store(name,min,max,avgCS) {
   this.avgCS = avgCS;
   this.avgCustPH = [];
   this.avgCookPH = [];
+  this.cookieHourlyTotal = [];
+  this.cookieHourTotal = 0;
   allStores.push(this);
 }
 
@@ -37,7 +39,7 @@ function makeHeaderRow() {
 
   storeTable.appendChild(trEl);
 }
-
+//table render
 Store.prototype.render = function() {
   var trEl = document.createElement('tr');
 
@@ -58,18 +60,40 @@ Store.prototype.render = function() {
   storeTable.appendChild(trEl);
 };
 
-
-
+//customers per hour
 Store.prototype.avgCust = function() {
   for (var i = 0; i < openHrs.length; i++) {
     this.avgCustPH.push(Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust);
   }
 };
 
-//stores hourly cookies sold
+//cookies per hour
 Store.prototype.avgCPH = function() {
   for (var i = 0; i < openHrs.length; i++) {
     this.avgCookPH.push(Math.round(this.avgCustPH[i] * this.avgCS));
+  }
+};
+
+
+
+//cookies total
+Store.prototype.cookieHourlyTotals = function() {
+  var totalCookiesHrly = 0;
+  for (var i = 0; i < openHrs.length; i++) {
+    // console.log(allStores[i]
+    for (var j = 0; j < allStores.length; j++) {
+      var currentStoreObject = allStores[j];
+      console.log('currentStoreObject', currentStoreObject[i]);
+
+
+      this.cookieHourTotal = 0;
+      this.cookieHourTotal += currentStoreObject.avgCookPH[j];
+      ////////////////////////////////////
+      totalCookiesHrly += this.cookieHourTotal;
+      console.log('totalCookiesHrly', totalCookiesHrly);
+    }
+    return totalCookiesHrly;
+    break;
   }
 };
 
@@ -105,3 +129,4 @@ function calltags() {
   alki.render();
 };
 calltags();
+pike.cookieHourlyTotals();
