@@ -7,6 +7,8 @@ var openHrs = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4
 //var clearFigureList = document.getElementById('clear_figure_list');
 // ==================================================================
 var allStores = [];
+var cookieHourlyTotal = [];
+
 var storeTable = document.getElementById('stores');
 function Store(name,min,max,avgCS) {
   this.name = name;
@@ -15,7 +17,6 @@ function Store(name,min,max,avgCS) {
   this.avgCS = avgCS;
   this.avgCustPH = [];
   this.avgCookPH = [];
-  this.cookieHourlyTotal = [];
   this.cookieHourTotal = 0;
   allStores.push(this);
 }
@@ -78,22 +79,20 @@ Store.prototype.avgCPH = function() {
 
 //cookies total
 Store.prototype.cookieHourlyTotals = function() {
-  var totalCookiesHrly = 0;
   for (var i = 0; i < openHrs.length; i++) {
-    // console.log(allStores[i]
+    var totalCookiesHrly = 0;
     for (var j = 0; j < allStores.length; j++) {
       var currentStoreObject = allStores[j];
-      console.log('currentStoreObject', currentStoreObject[i]);
+      // console.log('currentStoreObject', currentStoreObject[i]);
 
 
       this.cookieHourTotal = 0;
       this.cookieHourTotal += currentStoreObject.avgCookPH[j];
       ////////////////////////////////////
       totalCookiesHrly += this.cookieHourTotal;
-      console.log('totalCookiesHrly', totalCookiesHrly);
     }
-    return totalCookiesHrly;
-    break;
+    cookieHourlyTotal.push(totalCookiesHrly);
+    console.log('totalCookiesHrly', totalCookiesHrly);
   }
 };
 
