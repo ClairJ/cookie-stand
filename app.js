@@ -2,7 +2,9 @@
 //var stores = [];
 var openHrs = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 // ==================================================================
-var figureForm = document.getElementById('firgure-form')
+//var figureList = document.getElementById('figure_list');
+//var figureForm = document.getElementById('firgure_Form');
+//var clearFigureList = document.getElementById('clear_figure_list');
 // ==================================================================
 var allStores = [];
 var storeTable = document.getElementById('stores');
@@ -55,6 +57,7 @@ Store.prototype.render = function() {
 
   storeTable.appendChild(trEl);
 };
+
 
 
 Store.prototype.avgCust = function() {
