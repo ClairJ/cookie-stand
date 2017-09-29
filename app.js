@@ -34,12 +34,25 @@ function makeHeaderRow() {
 
     trEl.appendChild(thEl);
   };
-  thEl = document.createElement('th');
-  thEl.testContent = 'Daily Total';
-  trEl.appendChild(thEl);
 
   storeTable.appendChild(trEl);
 }
+
+function makeFooterRow() {
+  var trEl = document.createElement('tr');
+
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Total';
+  trEl.appendChild(thEl);
+  for (var i = 0; i < openHrs.length; i++) {
+    thEl = document.createElement('th');
+    thEl.textContent = cookieHourlyTotal[i];
+
+    trEl.appendChild(thEl);
+  };
+  storeTable.appendChild(trEl);
+}
+
 //table render
 Store.prototype.render = function() {
   var trEl = document.createElement('tr');
@@ -52,12 +65,7 @@ Store.prototype.render = function() {
     tdEl = document.createElement('td');
     tdEl.textContent = this.avgCookPH[i];
     trEl.appendChild(tdEl);
-  }
-
-  // var thEl = document.createElement('th');
-  // thEl.textContent = this.avgCookPH;
-  // trEl.appendChild(thEl);
-
+  };
   storeTable.appendChild(trEl);
 };
 
@@ -74,8 +82,6 @@ Store.prototype.avgCPH = function() {
     this.avgCookPH.push(Math.round(this.avgCustPH[i] * this.avgCS));
   }
 };
-
-
 
 //cookies total
 Store.prototype.cookieHourlyTotals = function() {
@@ -126,6 +132,7 @@ function calltags() {
   seaCenter.render();
   capitolHill.render();
   alki.render();
+  pike.cookieHourlyTotals();
+  makeFooterRow();
 };
 calltags();
-pike.cookieHourlyTotals();
