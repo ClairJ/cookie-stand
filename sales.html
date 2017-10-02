@@ -5,31 +5,33 @@
     <title>Sales</title>
   </head>
 
-
-
-
-
   <body>
     <h2>
       <a href="index.html">Home</a>
     </h2>
-    <form id="figureForm">
+    <form id="add-location">
       <fieldset>
         <legend>ex was chat submission form</legend>
 
-        <label for="Store">Store :</label>
-        <input type="text" name="Store"/>
+        <label for="locName">Store :</label>
+        <input type="text" name="locName"/>
 
-        <label for="Figure">New Cookie Figure</label>
-        <input type="text" name="Figure" size="50" />
+        <label for="min">New Min Customer</label>
+        <input type="number" name="min"/>
+
+        <label for="max">New Max Customer</label>
+        <input type="number" name="max" value="">
+
+        <label for="avg">New Cookie Sold PerCust</label>
+        <input type="text" name="avg" value="">
 
         <button type="submit">Submit</button>
       </fieldset>
 
     </form>
 
-    <button id="clear_figure_list">Clear all new figures</button>
-    <table id="stores">
+    <button id="clear-figure-list">Clear all new figures</button>
+    <table id="store-table">
 
     </table>
     <script src= 'app.js'>
